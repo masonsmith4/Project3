@@ -25,9 +25,11 @@ void printLane(int horseNum, int* horses) {
 			}
 		}
 		std::cout << std::endl;
+	}
 }
 
-bool isWinner(int horseNum, int* horses){
+bool isWinner(int* horses){
+	for (int y = 0; y < NUM_HORSES; ++y) {
 	bool result = false;
 	if (horses[horseNum] >= RACE_LENGTH){
 		std::cout << "Horse number " << horseNum << " Wins! " << std::endl;
@@ -52,4 +54,4 @@ int main() {
 		std::cin.get(); //had to look this one up
 	}
 }
-return 0;
+return 0; 
