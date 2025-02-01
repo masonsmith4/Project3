@@ -10,11 +10,10 @@ int coin = dist(rd);
 #define NUM_HORSES 5
 #define RACE_LENGTH 15
 
-void advance(int horseNum, int* horses) {
-	horses[horseNum] += dist(rd);
+/////// I ended up just writing advance in int main practically
 }
 
-
+// print the text lane
 void printLane(int* horses) {
 	for(int x = 0; x < NUM_HORSES; ++x) {
 		for (int y = 0; y < RACE_LENGTH; ++y) {
@@ -54,7 +53,7 @@ int main() {
 
 		if(!finish) {
 			std::cout << "Press enter to continue" << std::endl;
-			std::cin.get();
+			std::cin.get(); // had to look this up
 		}
 	}
 return 0;
