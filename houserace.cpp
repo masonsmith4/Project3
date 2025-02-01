@@ -1,5 +1,7 @@
 #include <random>
 #include <iostream>
+#include <cstdlib>
+
 std::random_device rd;
 std::uniform_int_distribution<int> dist(0, 1);
 
@@ -14,14 +16,15 @@ void advance(int horseNum, int* horses) {
 
 
 void printLane(int horseNum, int* horses) {
-	for (int y = 0; y < RACE_LENGTH; ++y) {
-		if (y == horses[horseNum]) {
-			std::cout << "H";
-		} else {
-			std::cout << ".";
+	for(int x = 0; x < NUM_HORSES; ++x) {
+		for (int y = 0; y < RACE_LENGTH; ++y) {
+			if (y == horses[horseNum]) {
+				std::cout << x;
+			} else {
+				std::cout << ".";
+			}
 		}
-	}
-	std::cout << std::endl;
+		std::cout << std::endl;
 }
 
 bool isWinner(int horseNum, int* horses){
@@ -38,16 +41,15 @@ int main() {
 	bool winner = false;
 
 	for(int y = 0; y < NUM_HORSES; ++y) {
-		while (true) {
-			advance(y, horses);
-			printLane(y, horses);
-
-				if (isWinner(y, horses)) {
-					winner = true;
-					return 0;
-			}
-		}
+		horses[y] += dist(rd);
 	}
-	return 0;
-}
+	printLane(horses);
 
+	finish = isWinner(horses);
+
+	if(!finish) {
+		std::cout << "Press enter to go another turn" << std::endl;
+		std::cin.get(); //had to look this one up
+	}
+}
+return 0;
