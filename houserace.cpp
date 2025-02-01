@@ -25,7 +25,7 @@ void printLane(int* horses) {
 		}
 		std::cout << std::endl;
 	}
-}
+} 
 
 bool isWinner(int* horses){
 	for (int y = 0; y < NUM_HORSES; ++y) {
