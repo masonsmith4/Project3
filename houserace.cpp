@@ -15,7 +15,7 @@ void advance(int horseNum, int* horses) {
 }
 
 
-void printLane(int horseNum, int* horses) {
+void printLane(int* horses) {
 	for(int x = 0; x < NUM_HORSES; ++x) {
 		for (int y = 0; y < RACE_LENGTH; ++y) {
 			if (y == horses[horseNum]) {
@@ -28,7 +28,7 @@ void printLane(int horseNum, int* horses) {
 	}
 }
 
-bool isWinner(int* horseNum, int* horses){
+bool isWinner(int* horses){
 	for (int y = 0; y < NUM_HORSES; ++y) {
 		if (horses[horseNum] >= RACE_LENGTH){
 			std::cout << "Horse number " << horseNum << " Wins! " << std::endl;
@@ -54,7 +54,7 @@ int main() {
 
 		if(!finish) {
 			std::cout << "Press enter to continue" << std::endl;
-			std::ctd.get();
+			std::cin.get();
 		}
 	}
 return 0;
