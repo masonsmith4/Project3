@@ -37,14 +37,13 @@ int main() {
 	int horses[NUM_HORSES] = {0};
 	bool winner = false;
 
-	while (winner) {
-		for (int y = 0; y < NUM_HORSES; ++y) {
-			advance(y, horses);
-			printLane(y, horses);
+	while (true) {
+		advance(y, horses);
+		printLane(y, horses);
 
 			if (isWinner(y, horses)) {
 				winner = true;
-				break; //sorryyyy 
+				return 0;
 			}
 		}
 	}
