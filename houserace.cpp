@@ -28,30 +28,34 @@ void printLane(int horseNum, int* horses) {
 	}
 }
 
-bool isWinner(int* horses){
+bool isWinner(int* horseNum, int* horses){
 	for (int y = 0; y < NUM_HORSES; ++y) {
-	bool result = false;
-	if (horses[horseNum] >= RACE_LENGTH){
-		std::cout << "Horse number " << horseNum << " Wins! " << std::endl;
-		result = true;
+		if (horses[horseNum] >= RACE_LENGTH){
+			std::cout << "Horse number " << horseNum << " Wins! " << std::endl;
+			result = true;
+		}
 	}
 	return result;
 }
 
 int main() {
 	int horses[NUM_HORSES] = {0};
-	bool winner = false;
+	bool finish = false;
 
-	for(int y = 0; y < NUM_HORSES; ++y) {
-		horses[y] += dist(rd);
+	while(!finish) {
+		for (int y = 0; y < NUM_HORSES; ++y) {
+			horses[y] += dist(rd);
+		}
+
+
+		printLane(horses);
+
+		finish = isWinner(horses);
+
+		if(!finish) {
+			std::cout << "Press enter to continue" << std::endl;
+			std::ctd.get();
+		}
 	}
-	printLane(horses);
-
-	finish = isWinner(horses);
-
-	if(!finish) {
-		std::cout << "Press enter to go another turn" << std::endl;
-		std::cin.get(); //had to look this one up
-	}
+return 0;
 }
-return 0; 
