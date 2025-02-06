@@ -1,5 +1,5 @@
-Project3
-procedural horse race
+# Project3
+procedural horse race 
 
 include your random gen
 include your time

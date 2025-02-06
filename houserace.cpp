@@ -40,22 +40,17 @@ bool isWinner(int* horses){
 
 int main() {
 	int horses[NUM_HORSES] = {0};
-	bool finish = false;
 
-	while(!finish) {
+	while (!isWinner(horses)) {
 		for (int y = 0; y < NUM_HORSES; ++y) {
-			horses[y] += dist(rd);
+			advance(y, horses);
 		}
-
-
 		printLane(horses);
 
-		finish = isWinner(horses);
-
-		if(!finish) {
-			std::cout << "Press enter to continue" << std::endl;
+		if(isWinner(horses)) {
+			std::cout << "Press enter to advnace" << std::endl;
 			std::cin.get();
-		}
+			}
 	}
-return 0;
+	return 0;
 }
