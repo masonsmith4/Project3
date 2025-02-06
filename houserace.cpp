@@ -10,11 +10,10 @@ coin = dist(rd);
 #define NUM_HORSES 5
 #define RACE_LENGTH 15
 
-void advance(int horseNum, int* horses) {
-	horses[horseNum] += dist(rd);
+/////// I ended up just writing advance in int main practically
 }
 
-
+// print the text lane
 void printLane(int* horses) {
 	for(int horseNum = 0; horseNum < NUM_HORSES; ++horseNum) {
 		for (int track = 0; track < RACE_LENGTH; ++track) {
@@ -26,7 +25,7 @@ void printLane(int* horses) {
 		}
 		std::cout << std::endl;
 	}
-}
+} 
 
 bool isWinner(int* horses){
 	for (int horseNum = 0; horseNum < NUM_HORSES; ++horseNum) {
@@ -41,16 +40,19 @@ bool isWinner(int* horses){
 int main() {
 	int horses[NUM_HORSES] = {0};
 
-	while(!isWinner(horses)) {
-		for(int horseNum = 0; horseNum < NUM_HORSES; ++horseNum) {
-			advance(horseNum, horses);
-			printLane(horses);
-			std::cout << "Press enter to advance" << std::endl;
-			std::cin.get();
+	while(!finish) {
+		for (int y = 0; y < NUM_HORSES; ++y) {
+			horses[y] += dist(rd);
+		}
 
-			if(isWinner(horses)) {
-				return 0;
-			}
+
+		printLane(horses);
+
+		finish = isWinner(horses);
+
+		if(!finish) {
+			std::cout << "Press enter to continue" << std::endl;
+			std::cin.get();
 		}
 	}
 	return 0;
