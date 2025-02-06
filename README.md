@@ -27,7 +27,7 @@ void printLane(int horseNum, int* totalhorses)
 	otherwise
 	print a
 
-bool isWinner(int horseNum, int* horses)
+bool isWinner(int* horses)
 	result = false;
 	if horse id equals the track length(15)
 	set that horse id as winner
