@@ -16,10 +16,10 @@ void advance(int horseNum, int* horses) {
 
 
 void printLane(int* horses) {
-	for(int x = 0; x < NUM_HORSES; ++x) {
-		for (int y = 0; y < RACE_LENGTH; ++y) {
-			if (y == horses[x]) {
-				std::cout << x;
+	for(int horseNum = 0; horseNum < NUM_HORSES; ++horseNum) {
+		for (int track = 0; track < RACE_LENGTH; ++track) {
+			if (track == horses[horseNum]) {
+				std::cout << horseNum;
 			} else {
 				std::cout << ".";
 			}
@@ -29,9 +29,9 @@ void printLane(int* horses) {
 }
 
 bool isWinner(int* horses){
-	for (int y = 0; y < NUM_HORSES; ++y) {
-		if (horses[y] >= RACE_LENGTH){
-			std::cout << "Horse number " << y << " Wins! " << std::endl;
+	for (int horseNum = 0; horseNum < NUM_HORSES; ++horseNum) {
+		if (horses[horseNum] >= RACE_LENGTH){
+			std::cout << "Horse number " << horseNum << " Wins! " << std::endl;
 			return true;
 		}
 	}
@@ -42,8 +42,8 @@ int main() {
 	int horses[NUM_HORSES] = {0};
 
 	while(!isWinner(horses)) {
-		for(int y = 0; y < NUM_HORSES; ++y) {
-			advance(y, horses);
+		for(int horseNum = 0; horseNum < NUM_HORSES; ++horseNum) {
+			advance(horseNum, horses);
 			printLane(horses);
 			std::cout << "Press enter to advance" << std::endl;
 			std::cin.get();
